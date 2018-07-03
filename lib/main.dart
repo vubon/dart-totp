@@ -105,13 +105,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
-              '$barcode',
-              style: Theme.of(context).textTheme.display1,
-            ),
             new Text("$totp",
-                style:
-                    new TextStyle(color: Colors.deepPurple, fontSize: 30.10)),
+                style: new TextStyle(color: Colors.deepPurple, fontSize: 30.10)
+            ),
             new Text(val.toString()),
 //            new RaisedButton(
 //              child: new Text("Click"),

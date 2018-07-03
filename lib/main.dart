@@ -64,8 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
       print('$barcode');
       if (val == 0) {
         //totp = new Random().nextInt(999999) + 100000;
-        totp = OTP.generateTOTPCode(barcode.toString(),
-            new DateTime.now().millisecondsSinceEpoch);
+        totp = OTP.generateTOTPCode(
+            barcode.toString(), new DateTime.now().millisecondsSinceEpoch);
       }
     });
   }
@@ -86,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         val = d.inSeconds;
         if (val == 0) {
-          totp = OTP.generateTOTPCode(barcode.toString(),
-              new DateTime.now().millisecondsSinceEpoch);
+          totp = OTP.generateTOTPCode(
+              barcode.toString(), new DateTime.now().millisecondsSinceEpoch);
         }
       });
     });
@@ -105,16 +105,46 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text("$totp",
-                style: new TextStyle(color: Colors.deepPurple, fontSize: 30.10)
-            ),
-            new Text(val.toString()),
+//            new Text("$totp",
+//                style:
+//                    new TextStyle(color: Colors.deepPurple, fontSize: 30.10)),
+//            new Text(val.toString()),
 //            new RaisedButton(
 //              child: new Text("Click"),
 //              onPressed: _randomNumber,
 //              color: Colors.deepPurple,
 //              textColor: Colors.white,
 //            )
+
+            new Card(
+              child: new Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  new ListTile(
+                    leading: const Icon(Icons.timelapse),
+                    title: new Text(
+                      totp.toString(),
+                      style: new TextStyle(
+                          color: Colors.deepPurple, fontSize: 30.50),
+                    ),
+                    subtitle: new Text('01737388296'),
+                  ),
+                  new ButtonTheme.bar(
+                    // make buttons use the appropriate styles for cards
+                    child: new ButtonBar(
+                      children: <Widget>[
+                        new FlatButton(
+                          child: const Text('BUY TICKETS'),
+                          onPressed: () {
+                            /* ... */
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),

@@ -61,9 +61,10 @@ class _MyHomePageState extends State<MyHomePage> {
   void _randomNumber() {
     setState(() {
       countdown();
+      print('$barcode');
       if (val == 0) {
         //totp = new Random().nextInt(999999) + 100000;
-        totp = OTP.generateTOTPCode("GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ",
+        totp = OTP.generateTOTPCode(barcode.toString(),
             new DateTime.now().millisecondsSinceEpoch);
       }
     });
@@ -85,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         val = d.inSeconds;
         if (val == 0) {
-          totp = OTP.generateTOTPCode("GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ",
+          totp = OTP.generateTOTPCode(barcode.toString(),
               new DateTime.now().millisecondsSinceEpoch);
         }
       });
@@ -112,12 +113,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 style:
                     new TextStyle(color: Colors.deepPurple, fontSize: 30.10)),
             new Text(val.toString()),
-            new RaisedButton(
-              child: new Text("Click"),
-              onPressed: _randomNumber,
-              color: Colors.deepPurple,
-              textColor: Colors.white,
-            )
+//            new RaisedButton(
+//              child: new Text("Click"),
+//              onPressed: _randomNumber,
+//              color: Colors.deepPurple,
+//              textColor: Colors.white,
+//            )
           ],
         ),
       ),
@@ -137,6 +138,9 @@ class _MyHomePageState extends State<MyHomePage> {
     try {
       String barcode = await BarcodeScanner.scan();
       setState(() => this.barcode = barcode);
+      setState(() {
+        _randomNumber();
+      });
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {

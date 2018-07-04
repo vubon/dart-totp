@@ -61,28 +61,30 @@ class _MyHomePageState extends State<MyHomePage> {
   void _randomNumber() {
     setState(() {
       countdown();
-      print('$barcode');
-      if (val == 0) {
-        //totp = new Random().nextInt(999999) + 100000;
-        totp = OTP.generateTOTPCode(
-            barcode.toString(), new DateTime.now().millisecondsSinceEpoch);
-      }
+      //print('$barcode');
+      totp = OTP.generateTOTPCode(
+          barcode.toString(), new DateTime.now().millisecondsSinceEpoch);
+//      if (val == 0) {
+//        //totp = new Random().nextInt(999999) + 100000;
+//        totp = OTP.generateTOTPCode(
+//            barcode.toString(), new DateTime.now().millisecondsSinceEpoch);
+//      }
     });
   }
 
   void countdown() {
-    print("countdown() called");
+    //print("countdown() called");
     cd = new CountDown(new Duration(seconds: 30));
     // StreamSubscription sub=cd.stream.listen(null);
     var sub = cd.stream.listen(null);
     sub.onDone(() {
-      print("Done");
+      //print("Done");
       countdown();
     });
 
     sub.onData((Duration d) {
       if (val == d.inSeconds) return;
-      print("onData: d.inSeconds=${d.inSeconds}");
+      //print("onData: d.inSeconds=${d.inSeconds}");
       setState(() {
         val = d.inSeconds;
         if (val == 0) {
@@ -103,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Center(
         child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+         // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
 //            new Text("$totp",
 //                style:
@@ -133,12 +135,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     // make buttons use the appropriate styles for cards
                     child: new ButtonBar(
                       children: <Widget>[
-                        new FlatButton(
-                          child: const Text('BUY TICKETS'),
-                          onPressed: () {
-                            /* ... */
-                          },
+                        new Text(
+                          val.toString(),
+                          style: new TextStyle(fontSize: 30.50),
                         ),
+                        new Text((((new DateTime.now().millisecondsSinceEpoch ~/
+                                        1000)
+                                    .round()) ~/
+                                30)
+                            .floor()
+                            .toString()
+                        )
                       ],
                     ),
                   ),

@@ -9,7 +9,8 @@ A simple prototype for two factor TOTP(Time Based One Time Password).
 | Generate OTP | `Done`      |
 
 ## Uses
-Step-1 : Click on the plus (+) icon. It should open a camera. Scan User QR Code which is a secret key. (Currently, any QR code supported) 
+Step-1 : Click on the plus (+) icon. It should open a camera. Scan User QR Code which is a secret key. (Currently, any QR code supported). 
+
 Step-2 : You should see OTP. Each OTP will be changed 30 seconds. 
 
 ## Getting Started

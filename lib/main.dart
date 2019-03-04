@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -105,19 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Center(
         child: new Column(
-         // mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-//            new Text("$totp",
-//                style:
-//                    new TextStyle(color: Colors.deepPurple, fontSize: 30.10)),
-//            new Text(val.toString()),
-//            new RaisedButton(
-//              child: new Text("Click"),
-//              onPressed: _randomNumber,
-//              color: Colors.deepPurple,
-//              textColor: Colors.white,
-//            )
-
             new Card(
               child: new Column(
                 mainAxisSize: MainAxisSize.min,
@@ -129,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: new TextStyle(
                           color: Colors.deepPurple, fontSize: 30.50),
                     ),
-                    subtitle: new Text('01737388296'),
+                    subtitle: new Text('Time Base OTP'),
                   ),
                   new ButtonTheme.bar(
                     // make buttons use the appropriate styles for cards
@@ -139,13 +127,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           val.toString(),
                           style: new TextStyle(fontSize: 30.50),
                         ),
-                        new Text((((new DateTime.now().millisecondsSinceEpoch ~/
-                                        1000)
-                                    .round()) ~/
-                                30)
-                            .floor()
-                            .toString()
-                        )
                       ],
                     ),
                   ),

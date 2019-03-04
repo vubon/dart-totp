@@ -9,8 +9,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   barcode_scan: "^0.0.4"
-  countdown: "^0.0.3"
-  base32: 1.0.0
+  countdown: "^0.1.0"
+  base32: ^1.0.1
+  crypto: ^2.0.6
 
 
 dev_dependencies:

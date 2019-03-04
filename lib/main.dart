@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: new TextStyle(
                           color: Colors.deepPurple, fontSize: 30.50),
                     ),
-                    subtitle: new Text('Time Base OTP'),
+                    subtitle: new Text('Time-Based OTP'),
                   ),
                   new ButtonTheme.bar(
                     // make buttons use the appropriate styles for cards

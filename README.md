@@ -13,8 +13,7 @@ Step-1 : Click on the plus (+) icon. It should open a camera. Scan User QR Code 
 
 Step-2 : You should see OTP. Each OTP will be changed 30 seconds. 
 
-![Two Factor OTP](screenshot/two_factor.jpg)
-<img src="https://github.com/vubon/dart-totp/raw/dev/screenshot/two_factor.jpg" width="100" height="100">
+<img src="https://github.com/vubon/dart-totp/raw/dev/screenshot/two_factor.jpg" width="300" height="400">
 
 ## Getting Started
 For help getting started with Flutter, view our online
